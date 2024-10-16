@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block start %}
+      <h1> This is a Django project Home page </h1>
+
+<table class="container">
+    <tr>
+      <th>S. No.</th>
+      <th>Name</th> 
+      <th>Age</th>
+      <th>Can Vote </th>
+    </tr>
+    {% for people in peoples%}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{people.name}}</td>
+      <td>{{people.age}}</td>
+      <td> 
+        {% if people.age >= 18%}
+        👍
+        {% else%}
+        👎
+        {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+
+    <a href='/'>Home | </a>
+    <a href= '/about'>About | </a>
+    <a href= '/contact'>Contact</a>
+{% endblock start%}
